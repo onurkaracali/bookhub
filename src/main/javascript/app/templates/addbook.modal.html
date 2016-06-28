@@ -1,0 +1,58 @@
+<div style="padding: 10px">
+    <form novalidate name="form">
+        <h3>Kitap Ekle</h3>
+
+        <div class="alert alert-danger" ng-if="addBookCtl.errorMessage != null">
+            {{addBookCtl.errorMessage}}
+        </div>
+
+        <!-- Book Name -->
+        <div class="form-group">
+            <label for="inputBookName">Kitap Adı : </label>
+            <input type="text" class="form-control"
+                   ng-model="addBookCtl.newBookObj.book.name"
+                   id="inputBookName" name="inputBookName"
+                   placeholder="Kitap" required>
+        </div>
+
+        <div ng-show="form.$submitted || form.inputBookName.$touched">
+            <div class="alert alert-danger" ng-show="form.inputBookName.$error.required">Kitap adı zorunludur.</div>
+        </div>
+
+
+        <!-- Author Name -->
+        <div class="form-group">
+            <label for="inputAuthorName">Yazar Adı : </label>
+            <input type="text" class="form-control"
+                   ng-model="addBookCtl.newBookObj.book.author"
+                   id="inputAuthorName"
+                   name="inputAuthorName"
+                   placeholder="Yazar" required>
+        </div>
+
+        <div ng-show="form.$submitted || form.inputAuthorName.$touched">
+            <div class="alert alert-danger" ng-show="form.inputAuthorName.$error.required">Yazar adı zorunludur.</div>
+        </div>
+
+        <div>
+
+            <captcha></captcha>
+            <div class="form-group">
+                <label for="inputAuthorName">Captcha : </label>
+                <input type="text" class="form-control"
+                       ng-model="addBookCtl.newBookObj.capcha"
+                       id="inputCapcha"
+                       name="inputCapcha" required>
+            </div>
+        </div>
+
+        <div ng-show="form.$submitted || form.inputCapcha.$touched">
+            <div class="alert alert-danger" ng-show="form.inputCapcha.$error.required">Captcha zorunludur.</div>
+        </div>
+
+        <hr>
+
+        <button type="reset" class="btn btn-default" ng-click="addBookCtl.cancelAction()">Vazgeç</button>
+        <button type="submit" class="btn btn-default" ng-click="addBookCtl.addBookAction()">Ekle</button>
+    </form>
+</div>

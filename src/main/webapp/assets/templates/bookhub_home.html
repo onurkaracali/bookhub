@@ -1,0 +1,23 @@
+<div class="container ">
+    <div class="well">
+        <h1>Welcome to Bookhub</h1>
+    </div>
+</div>
+
+<div class="alert alert-danger" ng-if="hctrl.errorStatus">
+    Sistemde bir hata meydana geldiği için işleminizi tamamlayamıyoruz
+</div>
+
+<div class="container">
+    <button class="btn btn-primary" ng-click="hctrl.openDialogForAddNewBook()">Add Book</button>
+
+    <ul class="list-group">
+
+        <li class="list-group-item"
+            ng-repeat="book in hctrl.allBooks track by $index">{{book.name}} - {{book.author}}</li>
+
+    </ul>
+</div>
+
+
+

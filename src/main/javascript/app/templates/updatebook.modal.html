@@ -1,0 +1,44 @@
+<div style="padding: 10px">
+    <form novalidate name="form">
+        <h3>Kitap Ekle</h3>
+
+        <div class="alert alert-danger" ng-if="uptBookCtl.errorMessage != null">
+            {{uptBookCtl.errorMessage}}
+        </div>
+
+        <!-- Book Name -->
+        <div class="form-group">
+            <label for="inputBookName">Kitap Adı : </label>
+            <input type="text" class="form-control"
+                   ng-model="uptBookCtl.selectedBook.name"
+                   id="inputBookName" name="inputBookName"
+                   placeholder="Kitap" required>
+        </div>
+
+        <div ng-show="form.$submitted || form.inputBookName.$touched">
+            <div class="alert alert-danger" ng-show="form.inputBookName.$error.required">Kitap adı zorunludur.</div>
+        </div>
+
+
+        <!-- Author Name -->
+        <div class="form-group">
+            <label for="inputAuthorName">Yazar Adı : </label>
+            <input type="text" class="form-control"
+                   ng-model="uptBookCtl.selectedBook.author"
+                   id="inputAuthorName"
+                   name="inputAuthorName"
+                   placeholder="Yazar" required>
+        </div>
+
+        <div ng-show="form.$submitted || form.inputAuthorName.$touched">
+            <div class="alert alert-danger" ng-show="form.inputAuthorName.$error.required">Yazar adı zorunludur.</div>
+        </div>
+
+
+
+        <hr>
+
+        <button type="reset" class="btn btn-default" ng-click="uptBookCtl.cancelAction()">Vazgeç</button>
+        <button type="submit" class="btn btn-default" ng-click="uptBookCtl.updateBook()">Güncelle</button>
+    </form>
+</div>
