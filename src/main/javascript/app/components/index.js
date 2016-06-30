@@ -1,1 +1,2 @@
 require('./CapchaDirective');
+require('./AjaxIndicatorDirective');

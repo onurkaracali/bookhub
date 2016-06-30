@@ -4,12 +4,14 @@
     </div>
 </div>
 
-<div class="alert alert-danger" ng-if="hctrl.errorStatus">
-    Sistemde bir hata meydana geldiği için işleminizi tamamlayamıyoruz
-</div>
+
 
 <div class="container">
-    <button class="btn btn-primary" ng-click="hctrl.openDialogForAddNewBook()">Add Book</button>
+    <div class="alert alert-danger" ng-if="hctrl.errorStatus">
+        Sistemde bir hata meydana geldiği için işleminizi tamamlayamıyoruz
+    </div>
+
+    <button class="btn btn-primary" ng-click="hctrl.openDialogForAddNewBook()">Kitap Ekle</button>
 
     <ul class="list-group">
 

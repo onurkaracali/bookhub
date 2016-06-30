@@ -52,7 +52,7 @@
 
         <hr>
 
-        <button type="reset" class="btn btn-default" ng-click="addBookCtl.cancelAction()">Vazgeç</button>
-        <button type="submit" class="btn btn-default" ng-click="addBookCtl.addBookAction()">Ekle</button>
+        <button type="reset" class="btn btn-default" ng-click="addBookCtl.cancelAction()" >Vazgeç</button>
+        <button type="submit" class="btn btn-default" ng-click="addBookCtl.addBookAction()" ng-disabled="form.$invalid">Ekle</button>
     </form>
 </div>

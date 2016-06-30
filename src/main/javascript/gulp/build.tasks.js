@@ -2,10 +2,9 @@ var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var clean = require('gulp-clean');
-
-
-
-
+var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
+var streamify = require('gulp-streamify');
 
 gulp.task('copy-views', function () {
     gulp.src('index.html')
@@ -25,6 +24,8 @@ gulp.task('build-js',  function () {
 
     return b.bundle()
         .pipe(source('bookhub.js'))
+        .pipe(streamify(uglify()))
+        .pipe(buffer())
         .pipe(gulp.dest('../webapp/assets/js'));
 
 });
@@ -32,6 +33,11 @@ gulp.task('build-js',  function () {
 
 gulp.task('build-styles', function () {
     var sass = require('gulp-sass');
+
+    gulp.src('./styles/*.css')
+        .pipe(gulp.dest('../webapp/assets/css'));
+    gulp.src('./styles/*.gif')
+        .pipe(gulp.dest('../webapp/assets/img'));
 
     gulp.src('./sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))

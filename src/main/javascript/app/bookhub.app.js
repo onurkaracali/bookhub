@@ -1,13 +1,13 @@
 var $ = require('jquery/dist/jquery');
-require('angular');
-require('angular-ui-router');
+require('angular/angular.min');
+require('angular-ui-router/release/angular-ui-router.min');
 require('angular-ui-bootstrap');
 
 
 
 angular.module('bookhub', ['ui.router', 'ui.bootstrap']);
 
-angular.module('bookhub').constant('api_endpoint_url', 'http://localhost:8080/bookhub/api');
+angular.module('bookhub').constant('api_endpoint_url', '/api');
 
 angular.module('bookhub').config(['$urlRouterProvider',
     '$stateProvider', '$httpProvider',
